@@ -1,20 +1,11 @@
+//객체 리터럴 안쪽에서의 this : window객체(전역객체)
+//생성자를 통한 인스턴스를 복사하는 법
+function Student(props) {
+  this.name = props.name; //생성자 안쪽의 this : 해당 생성자를 통해서 앞으로 복사가될 인스턴스 객체를 지칭, (처음에는 윈도우 객체를 의미), 스키마처럼 객체 구조에 맞는 것만 저장됨
+  this.age = props.age || 20;
+  this.isFemale = props.isFemale;
+} //함수 첫글자가 대문자인 경우, 인스턴스를 복사할 생성자함수 
 
-//객체의 property key에 함수도 등록 가능! 굿... 완전 좋음
-const student2 = {
-  name: 'Julia',
-  age: 23,
-  isFemale: true,
-  inform: () => {
-    console.log(`이름 : ${student2.name} 의 나이는 ${student2.age + 1}입니다`)
-  },
-  whoareyou: function () {
-    console.log(`이름 : ${student2.name} 의 나이는 ${student2.age + 1}입니다`)
-  }
-};
-console.log(student2.inform());
-
-//객체안에 등록되어 있는 함수를 메서드(prototype에 등록된 함수 : 메서드)
-//자바스크립트에서는 이처럼 객체 property에 등록가능하거나 함수의 인수로 전달가능하거나
-//변수에 대입할수있는 함수를 일급객체
-student2.inform();
-//student2.whoareyou();
+Student.prototype.inform = function () {
+  console.log('My Name is ' + this.name + ' and I am ' + this.age + ' years old');
+}
