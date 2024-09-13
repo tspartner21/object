@@ -1,22 +1,26 @@
-//구조 분해 할당, 비구조화 할당(Destructuring Assignment)
-
-const colors = ['red', 'blue', 'green', 'blue'];
+//구조 분해 할당, 비구조화할당 (Destructure Assignment)
+const colors = ['red', 'green', 'blue'];
 const color1 = colors[0];
 const color2 = colors[1];
 const color3 = colors[2];
 
-//const [c1, c2, c3] = ['hotpink', 'aqua', 'violet'];
 const myFavoraitColor = ['hotpink', 'aqua', 'violet'];
 const [c1, c2, c3] = myFavoraitColor;
 console.log(c3);
 
-const _student1 = {
+const student1 = {
   name: 'Andy',
   age: 30,
   address: 'Seoul'
 };
 
-const { name: name1, age, address } = _student1;
-console.log({ name1 });
+// const name = student1.name;
+// const age = student1.age;
+// const address = student1.address;
+
+//객체의 경우는 무조건 객체의 property key로만 비구조화할당 가능
+//뽑아낸 값의 변수명을 변경할시  key:원하는변수명
+const { name: name1, age, address } = student1;
+console.log(name1);
 console.log(age);
 console.log(address);
